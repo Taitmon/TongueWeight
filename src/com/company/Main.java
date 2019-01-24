@@ -5,8 +5,6 @@ public class Main
 
     public static void main(String[] args)
     {
-        final double MIN_PERCENT = .09;
-        final double MAX_PERCENT = .15;
 
         java.util.Scanner in = new java.util.Scanner(System.in);
 
@@ -16,20 +14,21 @@ public class Main
         System.out.println("Please enter the cargo weight.");
         double cargoWeight = in.nextDouble();
 
-        double totalWeight = trailerWeight + cargoWeight;
 
-        double minTongueWeight = totalWeight * MIN_PERCENT;
-        double maxTongueWeight = totalWeight * MAX_PERCENT;
-
-        System.out.println("The minimum tongue weight is:  " + minTongueWeight + " lbs.");
-        System.out.println("The maximum tongue weight is:  " + maxTongueWeight + " lbs.");
-
-        printRange(minTongueWeight, maxTongueWeight);
+        printRange(trailerWeight, cargoWeight);
     }
 
     private static void printRange(double trailerWeight, double cargoWeight)
     {
-        double average = (trailerWeight + cargoWeight) * .5;
-        System.out.println("The average tongue weight is: " + average);
+        double totalWeight = trailerWeight + cargoWeight;
+
+        final double MIN_PERCENT = .09;
+        final double MAX_PERCENT = .15;
+
+        double minTongueWeight = totalWeight * MIN_PERCENT;
+        double maxTongueWeight = totalWeight * MAX_PERCENT;
+        System.out.println("The minimum tongue weight is:  " + minTongueWeight + " lbs.");
+        System.out.println("The maximum tongue weight is:  " + maxTongueWeight + " lbs.");
+
     }
 }
